@@ -22,9 +22,8 @@ pipeline {
                 dir('backend') {
                     sh '''
                     pkill node || true
-                    nohup node server.js > app.log 2>&1 &
-                    disown
-                '''
+                    nohup node server.js > app.log 2>&1 < /dev/null &
+                    '''
                 }
             }
         }
