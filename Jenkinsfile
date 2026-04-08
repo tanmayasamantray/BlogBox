@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/tanmayasamantray/BlogBox.git'
+                echo "Using default SCM checkout"
             }
         }
 
@@ -20,7 +20,7 @@ pipeline {
         stage('Run Backend') {
             steps {
                 dir('backend') {
-                    sh 'nohup node server.js &'
+                    sh 'nohup node server.js > app.log 2>&1 &'
                 }
             }
         }
