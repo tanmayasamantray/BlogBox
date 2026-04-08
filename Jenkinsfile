@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        sonarScanner 'sonar-scanner'
+        sonarRunner 'sonar-scanner'
     }
 
     stages {
@@ -29,8 +29,7 @@ pipeline {
                         sonar-scanner \
                         -Dsonar.projectKey=blog-backend \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=http://localhost:9000 \
-                        -Dsonar.login=$SONAR_AUTH_TOKEN
+                        -Dsonar.host.url=http://3.108.199.223:9000
                         '''
                     }
                 }
