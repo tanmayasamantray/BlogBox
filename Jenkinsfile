@@ -20,7 +20,11 @@ pipeline {
         stage('Run Backend') {
             steps {
                 dir('backend') {
-                    sh 'nohup node server.js > app.log 2>&1 &'
+                    sh '''
+                    pkill node || true
+                    nohup node server.js > app.log 2>&1 &
+                    disown
+                '''
                 }
             }
         }
